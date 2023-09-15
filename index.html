@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html><head>
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0"><meta charset="utf-8">
+  <title>SHA_OPENAIHTML5</title>
+  <meta name="generator" content="Google Web Designer 15.3.0.0828">
+  <style id="gwd-text-style">p {
+    margin: 0px;
+}
+h1 {
+    margin: 0px;
+}
+h2 {
+    margin: 0px;
+}
+h3 {
+    margin: 0px;
+}</style>
+  <style>html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+}
+body {
+    background-color: transparent;
+    transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    -webkit-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    -moz-transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1);
+    perspective: 1400px;
+    -webkit-perspective: 1400px;
+    -moz-perspective: 1400px;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+}
+body * {
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+}
+.gwd-input-19aa {
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    top: 86px;
+    left: 221px;
+}
+.gwd-label-hcw2 {
+    position: absolute;
+    width: 100px;
+    height: 20px;
+    left: 79px;
+    top: 89px;
+}
+.gwd-button-m2uk {
+    position: absolute;
+    height: 24px;
+    left: 221px;
+    top: 170px;
+    width: 200px;
+}
+.gwd-input-fs05 {
+    position: absolute;
+    top: 252px;
+    left: 221px;
+    width: 400px;
+    height: 100px;
+}</style>
+  <script type="text/javascript" gwd-events="support" src="gwd-events-support.1.0.js"></script>
+  <script type="text/javascript" gwd-events="handlers">
+    window.gwd = window.gwd || {};
+    gwd.auto_Button_1Click = function(event) {
+      document.getElementById('button_1').addEventListener('click', function() {
+        // Get the text value you want to send
+        var inputValue = document.getElementById('textInput').value;
+        alert('textInput: ' + inputValue);
+        // Create an object to hold the data
+        var requestData = {
+          "prompt": inputValue,
+          "model": "gpt-3.5-turbo",
+          "max_tokens": 100,
+          "temperature": 0
+        };
+        // Convert the data object to a JSON string
+        var jsonData = JSON.stringify(requestData);
+        // Create a new XMLHttpRequest object
+        var xhr = new XMLHttpRequest();
+        // Define the URL you want to make the POST request to
+        var url = 'https://openaisha392.azurewebsites.net/api/sha_openai4';
+        // Set up the request
+        xhr.open('POST', url, true);
+        // Set the Content-Type header for JSON data
+        xhr.setRequestHeader('Content-Type', 'application/json');
+        // Set up the event handler for when the request is completed
+        xhr.onload = function() {
+          if (xhr.status === 200) {
+            // Request was successful, get the response text
+            var responseText = xhr.responseText;
+            document.getElementById('responseText').value = responseText;
+            //   alert('Response from server: ' + responseText);
+          } else {
+            // Request failed
+            alert('HTTP request failed with status ' + xhr.status);
+          }
+        };
+        // Handle network errors
+        xhr.onerror = function() {
+          alert('Network error occurred');
+        };
+        // Send the POST request with the JSON data
+        xhr.send(jsonData);
+      });
+    };
+  </script>
+  <script type="text/javascript" gwd-events="registration">
+    // Code d'assistance pour la gestion des événements dans Google Web Designer
+    // Ce bloc de script est généré automatiquement. Veuillez ne pas le modifier.
+    gwd.actions.events.registerEventHandlers = function(event) {
+      gwd.actions.events.addHandler('button_1', 'click', gwd.auto_Button_1Click, false);
+    };
+    gwd.actions.events.deregisterEventHandlers = function(event) {
+      gwd.actions.events.removeHandler('button_1', 'click', gwd.auto_Button_1Click, false);
+    };
+    document.addEventListener("DOMContentLoaded", gwd.actions.events.registerEventHandlers);
+    document.addEventListener("unload", gwd.actions.events.deregisterEventHandlers);
+  </script>
+<style>#pagedeck { overflow: hidden !important; }</style></head>
+
+<body class="htmlNoPages">
+  <input type="text" id="textInput" class="gwd-input-19aa">
+  <label id="label_1" class="gwd-label-hcw2">Prompt</label>
+  <button id="button_1" class="gwd-button-m2uk">Generate response</button>
+  <input type="text" id="responseText" class="gwd-input-fs05">
+
+
+</body></html>
